@@ -1,22 +1,18 @@
 import React from 'react';
+import { CssBaseline } from '@mui/material';
 
-// type SearchResult = {
-//   id: string;
-//   title: string;
-//   url: string;
-//   description: string;
-//   category: 'VIDEOS' | 'PLAYLISTS' | 'BLOG_POSTS';
-// };
+import { ErrorBoundary } from './components/ErrorBoundary';
+import { Page } from './Page';
+import { LoadingProvider } from './context/Loading';
 
-function App() {
+export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Search UI Challenge</h1>
-        [Your UI here]
-      </header>
-    </div>
-  );
-}
+    <ErrorBoundary>
+      <LoadingProvider>
+        <CssBaseline />
 
-export default App;
+        <Page />
+      </LoadingProvider>
+    </ErrorBoundary>
+  );
+};
