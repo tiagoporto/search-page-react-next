@@ -25,7 +25,8 @@
     "client": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "check-formatting": "prettier --check --ignore-unknown \"**/*\""
   },
   "eslintConfig": {
     "extends": [
@@ -47,6 +48,7 @@
   },
   "devDependencies": {
     "@types/express": "^4.17.17",
+    "prettier": "^3.2.5",
     "ts-node": "^10.9.1"
   },
   "proxy": "http://localhost:3001"

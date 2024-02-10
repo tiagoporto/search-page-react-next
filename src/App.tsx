@@ -9,15 +9,14 @@ type SearchResult = {
 };
 
 function App() {
-
-    return (
-        <div className="App">
-            <header className="App-header">
-                <h1>Search UI Challenge</h1>
-                [Your UI here]
-            </header>
-        </div>
-    );
+  return (
+    <div className="App">
+      <header className="App-header">
+        <h1>Search UI Challenge</h1>
+        [Your UI here]
+      </header>
+    </div>
+  );
 }
 
 export default App;
