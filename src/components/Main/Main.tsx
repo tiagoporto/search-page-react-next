@@ -11,7 +11,7 @@ import {
 import type { SearchList } from '../Search/data/getData';
 import { useLoadingContext } from '../../context/Loading';
 import { MainLoading } from './MainLoading';
-import { getCategory } from './getCategory';
+import { getCategory } from './helper/getCategory';
 
 export interface MainProps {
   searchResults?: SearchList[];

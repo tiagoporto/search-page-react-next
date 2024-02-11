@@ -4,7 +4,7 @@ import {
   EditNoteSharp,
 } from '@mui/icons-material';
 import { Skeleton } from '@mui/material';
-import type { SearchList } from '../Search/data/getData';
+import type { SearchList } from '../../Search/data/getData';
 
 export const getCategory = (category: SearchList['category']) => {
   switch (category) {
