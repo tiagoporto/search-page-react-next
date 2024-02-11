@@ -17,7 +17,7 @@ export interface MainProps {
   searchResults?: SearchList[];
 }
 
-export const Main = ({ searchResults }: MainProps) => {
+const Main = ({ searchResults }: MainProps) => {
   const { isLoading } = useLoadingContext();
 
   return isLoading ? (
@@ -59,3 +59,5 @@ export const Main = ({ searchResults }: MainProps) => {
     </>
   );
 };
+
+export default Main;
