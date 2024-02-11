@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { LinearProgress } from '@mui/material';
+import { LinearProgress, Container } from '@mui/material';
 import { Header } from '../components/Header';
 import { Main, MainProps } from '../components/Main';
 import { useLoadingContext } from '../context/Loading';
@@ -11,12 +11,14 @@ export const Page = () => {
   >(undefined);
 
   return (
-    <div className="App">
+    <>
       {isLoading && <LinearProgress title="Fetching" />}
 
-      <Header setSearchResults={setSearchResults} />
+      <Container>
+        <Header setSearchResults={setSearchResults} />
 
-      <Main searchResults={searchResults} />
-    </div>
+        <Main searchResults={searchResults} />
+      </Container>
+    </>
   );
 };

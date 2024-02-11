@@ -1,4 +1,5 @@
 import { Component, PropsWithChildren } from 'react';
+import { Typography, Button, Container } from '@mui/material';
 
 type ErrorBoundaryProps = PropsWithChildren<{}>;
 
@@ -21,7 +22,30 @@ export class ErrorBoundary extends Component<
 
   render() {
     if (this.state.hasError) {
-      return <p>Something went wrong</p>;
+      return (
+        <Container
+          sx={{
+            height: '100vh',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <Typography variant="h4" component="p" gutterBottom>
+            Something went wrong...
+          </Typography>
+
+          <Button
+            onClick={() => {
+              window.location.reload();
+            }}
+            variant="contained"
+          >
+            Reload
+          </Button>
+        </Container>
+      );
     }
 
     return this.props.children;

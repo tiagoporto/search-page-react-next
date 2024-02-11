@@ -1,8 +1,9 @@
 import React from 'react';
-import { Button, TextField, CircularProgress } from '@mui/material';
+import { Button, TextField, CircularProgress, Stack } from '@mui/material';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { getData } from './data/getData';
+import { useSnackbar } from 'notistack';
 import { useLoadingContext } from '../../context/Loading';
+import { getData } from './data/getData';
 
 interface FormFields {
   query: string;
@@ -14,26 +15,38 @@ export const Search = ({
   setSearchResults: Function;
 }) => {
   const { isLoading, setIsLoading } = useLoadingContext();
-  const { register, handleSubmit } = useForm<FormFields>();
+  const { enqueueSnackbar } = useSnackbar();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors: formErrors },
+  } = useForm<FormFields>();
 
   const onSubmit: SubmitHandler<FormFields> = async ({ query }) => {
     setIsLoading(true);
-
-    const data = await getData(query);
-
+    const { data, error } = await getData(query);
     setIsLoading(false);
-    setSearchResults(data);
+
+    if (error) {
+      enqueueSnackbar('Request error, try again!!!', {
+        variant: 'error',
+        anchorOrigin: { vertical: 'bottom', horizontal: 'center' },
+      });
+    } else {
+      setSearchResults(data);
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <Stack spacing={2} component="form" onSubmit={handleSubmit(onSubmit)}>
       <TextField
-        {...register('query')}
+        error={!!formErrors.query}
+        {...register('query', { required: true })}
         disabled={isLoading}
         type="search"
         inputProps={{ 'aria-label': 'Search' }}
-        required
         placeholder="Search for videos, playlists, and blog posts."
+        helperText={formErrors.query ? '*required' : ''}
       />
 
       <Button
@@ -42,8 +55,8 @@ export const Search = ({
         disabled={isLoading}
         type="submit"
       >
-        {isLoading ? <CircularProgress /> : 'Search'}
+        {isLoading ? <CircularProgress size={25} /> : 'Search'}
       </Button>
-    </form>
+    </Stack>
   );
 };

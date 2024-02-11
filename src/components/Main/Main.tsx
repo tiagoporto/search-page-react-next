@@ -1,44 +1,61 @@
 import React from 'react';
+import {
+  List,
+  ListItem,
+  ListItemText,
+  Typography,
+  ListItemIcon,
+  Link,
+} from '@mui/material';
+
+import type { SearchList } from '../Search/data/getData';
 import { useLoadingContext } from '../../context/Loading';
+import { MainLoading } from './MainLoading';
+import { getCategory } from './getCategory';
 
 export interface MainProps {
-  searchResults?: {
-    id: string;
-    title: string;
-    url: string;
-    description: string;
-    category: 'VIDEOS' | 'PLAYLISTS' | 'BLOG_POSTS';
-  }[];
+  searchResults?: SearchList[];
 }
 
 export const Main = ({ searchResults }: MainProps) => {
   const { isLoading } = useLoadingContext();
 
   return isLoading ? (
-    <div>Loading...</div>
+    <MainLoading />
   ) : (
     <>
       {!!searchResults?.length && (
-        <div>
-          Result
-          <ul>
+        <>
+          <Typography variant="h4" component="h2" color="text.secondary">
+            Search Items
+          </Typography>
+
+          <List>
             {searchResults.map((result) => (
-              <li key={result.id}>
-                <a href={result.url} target="_blank" rel="noreferrer noopener">
-                  {result.title}
-                </a>
+              <ListItem key={result.id}>
+                <ListItemIcon>{getCategory(result.category)}</ListItemIcon>
 
-                {result.category}
-
-                <p>{result.description}</p>
-              </li>
+                <ListItemText
+                  primary={
+                    <Link
+                      href={result.url}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                    >
+                      {result.title}
+                    </Link>
+                  }
+                  secondary={result.description}
+                />
+              </ListItem>
             ))}
-          </ul>
-        </div>
+          </List>
+        </>
       )}
 
-      {searchResults?.length === 0 &&
-        'There are no results matching your query.'}
+      {searchResults?.length === 0 && (
+        <Typography>There are no results matching your query.</Typography>
+      )}
     </>
   );
 };
