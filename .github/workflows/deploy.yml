@@ -26,6 +26,9 @@ jobs:
           persist-credentials: false
           fetch-depth: 0
 
+      - name: Install pnpm
+        uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda
+
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
 
