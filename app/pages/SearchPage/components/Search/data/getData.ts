@@ -8,7 +8,7 @@ export interface SearchList {
 
 export const getData = async (query: string) => {
   try {
-    const response = await fetch(`/api/data?search=${query}`)
+    const response = await fetch(`/api?query=${query}`)
     // network error (4xx–5xx)
     if (!response.ok) {
       return { error: true }

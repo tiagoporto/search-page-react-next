@@ -1,4 +1,3 @@
-import React from 'react'
 import { Search } from '../Search'
 import { Container, Typography } from '@mui/material'
 import type { SearchList } from '../Search/data/getData'
@@ -17,7 +16,7 @@ export const Header = ({
         align="center"
         color="text.secondary"
       >
-        Search UI Challenge
+        Search UI
       </Typography>
 
       <Search setSearchResults={setSearchResults} />

@@ -1,4 +1,4 @@
-import React from 'react'
+'use client'
 import { Button, TextField, CircularProgress, Stack } from '@mui/material'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { useSnackbar } from 'notistack'
