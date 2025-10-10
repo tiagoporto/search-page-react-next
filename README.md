@@ -1,39 +1,8 @@
-# Search UI Code Challenge
+# Search Page React Next
 
-Welcome to the Search UI coding challenge. You will be asked to build a small
-application demonstrating your abilities in React and TypeScript. This challenge
-is targeted towards mid to senior level engineers.
+## ✅ Status
 
-## Instructions
-
-1. Clone this repository to your local machine
-2. Create a new private repository on GitHub so others can't copy your work
-3. Push your local clone up to your private repository while preserving history
-4. Create a simple UI that meets the requirements below
-5. Add `jeromedane` as a viewer
-
-### Additional Notes
-
-- Use any libraries you like, keeping performance and bundle size in mind
-- Use any UI framework you like, but don't spend too much time here
-- This challenge should only take an hour or two
-
-## Development
-
-Install dependencies using `npm install`.
-
-Run `npm start` to concurrently start the server and UI in development mode.
-
-Open [http://localhost:3000](http://localhost:3000) to view the UI in the
-browser. The page will reload if you make edits.
-
-### API
-
-- The API server is run on port `3001` while the React UI is run on port `3000`
-- Your UI can call `/api/data?search=[some-query]` directly since
-  the request will be proxied to `http://localhost/api/data?...`
-- You will to need access the API on port `3001` if you're testing it directly
-  from outside your application (e.g. http://localhost:3001/api/data?search=credit)
+[![Checks GA Workflow Status](https://img.shields.io/github/actions/workflow/status/tiagoporto/search-page-react-next/checks.yml?branch=main&label=checks&logo=githubactions&logoColor=white&style=flat-square)](https://github.com/tiagoporto/search-page-react-next/actions/workflows/checks.yml?query=branch%3Amain)
 
 ## The Problem
 
