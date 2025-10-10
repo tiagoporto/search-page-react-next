@@ -1,11 +1,12 @@
 import React from 'react'
 import { Search } from '../Search'
 import { Container, Typography } from '@mui/material'
+import type { SearchList } from '../Search/data/getData'
 
 export const Header = ({
   setSearchResults,
 }: {
-  setSearchResults: Function
+  setSearchResults: (data: SearchList[]) => void
 }) => {
   return (
     <Container component="header" sx={{ my: 4 }} disableGutters maxWidth="md">

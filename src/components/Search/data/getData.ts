@@ -17,6 +17,7 @@ export const getData = async (query: string) => {
     const data: SearchList[] = await response.json()
     return { data }
   } catch (error) {
-    return { error: true }
+    console.error(error)
+    return { error }
   }
 }

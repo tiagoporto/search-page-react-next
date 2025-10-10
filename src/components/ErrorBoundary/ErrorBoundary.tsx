@@ -1,7 +1,7 @@
 import { Component, PropsWithChildren } from 'react'
 import { Typography, Button, Container } from '@mui/material'
 
-type ErrorBoundaryProps = PropsWithChildren<{}>
+type ErrorBoundaryProps = PropsWithChildren<object>
 
 interface ErrorBoundaryState {
   hasError: boolean

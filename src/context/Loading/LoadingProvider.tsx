@@ -3,7 +3,7 @@ import { useState } from 'react'
 
 import { LoadingContext } from './LoadingContext'
 
-export const LoadingProvider = ({ children }: PropsWithChildren<{}>) => {
+export const LoadingProvider = ({ children }: PropsWithChildren<object>) => {
   const [isLoading, setIsLoading] = useState(false)
 
   return (

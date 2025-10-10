@@ -4,6 +4,7 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import { useSnackbar } from 'notistack'
 import { useLoadingContext } from '../../context/Loading'
 import { getData } from './data/getData'
+import type { SearchList } from './data/getData'
 
 interface FormFields {
   query: string
@@ -12,7 +13,7 @@ interface FormFields {
 export const Search = ({
   setSearchResults,
 }: {
-  setSearchResults: Function
+  setSearchResults: (data: SearchList[]) => void
 }) => {
   const { isLoading, setIsLoading } = useLoadingContext()
   const { enqueueSnackbar } = useSnackbar()
@@ -25,16 +26,16 @@ export const Search = ({
   const onSubmit: SubmitHandler<FormFields> = async ({ query }) => {
     setIsLoading(true)
 
-    const { data, error } = await getData(query)
+    const { data } = await getData(query)
     setIsLoading(false)
 
-    if (error) {
+    if (data) {
+      setSearchResults(data)
+    } else {
       enqueueSnackbar('Request error, try again!!!', {
         variant: 'error',
         anchorOrigin: { vertical: 'bottom', horizontal: 'center' },
       })
-    } else {
-      setSearchResults(data)
     }
   }
 
