@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import {
   List,
   ListItem,
@@ -6,19 +6,19 @@ import {
   Typography,
   ListItemIcon,
   Link,
-} from '@mui/material';
+} from '@mui/material'
 
-import type { SearchList } from '../Search/data/getData';
-import { useLoadingContext } from '../../context/Loading';
-import { MainLoading } from './MainLoading';
-import { getCategory } from './helper/getCategory';
+import type { SearchList } from '../Search/data/getData'
+import { useLoadingContext } from '../../context/Loading'
+import { MainLoading } from './MainLoading'
+import { getCategory } from './helper/getCategory'
 
 export interface MainProps {
-  searchResults?: SearchList[];
+  searchResults?: SearchList[]
 }
 
 const Main = ({ searchResults }: MainProps) => {
-  const { isLoading } = useLoadingContext();
+  const { isLoading } = useLoadingContext()
 
   return isLoading ? (
     <MainLoading />
@@ -57,7 +57,7 @@ const Main = ({ searchResults }: MainProps) => {
         <Typography>There are no results matching your query.</Typography>
       )}
     </>
-  );
-};
+  )
+}
 
-export default Main;
+export default Main

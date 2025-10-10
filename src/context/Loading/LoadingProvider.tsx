@@ -1,10 +1,10 @@
-import type { PropsWithChildren } from 'react';
-import { useState } from 'react';
+import type { PropsWithChildren } from 'react'
+import { useState } from 'react'
 
-import { LoadingContext } from './LoadingContext';
+import { LoadingContext } from './LoadingContext'
 
 export const LoadingProvider = ({ children }: PropsWithChildren<{}>) => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false)
 
   return (
     <LoadingContext.Provider
@@ -15,5 +15,5 @@ export const LoadingProvider = ({ children }: PropsWithChildren<{}>) => {
     >
       {children}
     </LoadingContext.Provider>
-  );
-};
+  )
+}

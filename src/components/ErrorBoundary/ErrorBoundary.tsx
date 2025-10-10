@@ -1,10 +1,10 @@
-import { Component, PropsWithChildren } from 'react';
-import { Typography, Button, Container } from '@mui/material';
+import { Component, PropsWithChildren } from 'react'
+import { Typography, Button, Container } from '@mui/material'
 
-type ErrorBoundaryProps = PropsWithChildren<{}>;
+type ErrorBoundaryProps = PropsWithChildren<{}>
 
 interface ErrorBoundaryState {
-  hasError: boolean;
+  hasError: boolean
 }
 
 export class ErrorBoundary extends Component<
@@ -12,12 +12,12 @@ export class ErrorBoundary extends Component<
   ErrorBoundaryState
 > {
   constructor(props: ErrorBoundaryProps) {
-    super(props);
-    this.state = { hasError: false };
+    super(props)
+    this.state = { hasError: false }
   }
 
   static getDerivedStateFromError() {
-    return { hasError: true };
+    return { hasError: true }
   }
 
   render() {
@@ -38,16 +38,16 @@ export class ErrorBoundary extends Component<
 
           <Button
             onClick={() => {
-              window.location.reload();
+              window.location.reload()
             }}
             variant="contained"
           >
             Reload
           </Button>
         </Container>
-      );
+      )
     }
 
-    return this.props.children;
+    return this.props.children
   }
 }

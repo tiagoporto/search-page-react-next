@@ -14,4 +14,4 @@ module.exports = {
     'no-debugger': 'error',
     'no-nested-ternary': 'error',
   },
-};
+}

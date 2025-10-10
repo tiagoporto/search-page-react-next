@@ -45,6 +45,12 @@ importers:
         specifier: ^2.1.4
         version: 2.1.4
     devDependencies:
+      '@tiagoporto/editor-config':
+        specifier: ^2.1.0
+        version: 2.1.0
+      '@tiagoporto/prettier-config':
+        specifier: ^2.1.0
+        version: 2.1.0(prettier@3.6.2)
       '@types/express':
         specifier: ^4.17.17
         version: 4.17.23
@@ -1333,6 +1339,17 @@ packages:
   '@svgr/webpack@5.5.0':
     resolution: {integrity: sha512-DOBOK255wfQxguUta2INKkzPj6AIS6iafZYiYmHn6W3pHlycSRRlvWKCfLDG10fXfLWqE3DJHgRUOyJYmARa7g==}
     engines: {node: '>=10'}
+
+  '@tiagoporto/editor-config@2.1.0':
+    resolution: {integrity: sha512-fEeYPPH/Ti9YgnTb2r8j9aW2Tyx3/FwgesF/g7dLqyGsn3R05PSw9CAC551kdj0/XjAJV6xQ+uSvShchHpWiug==}
+    engines: {node: '>=20'}
+    hasBin: true
+
+  '@tiagoporto/prettier-config@2.1.0':
+    resolution: {integrity: sha512-n/cRD+L6XJ9fBgp+gFKASRzDdLdjonWfb2b9f4/F8t4HhiBawjgO4nsMxvJdgsR7qMYAYzLljBwwrn0NCpDRiA==}
+    engines: {node: '>=20'}
+    peerDependencies:
+      prettier: '>= 3'
 
   '@tootallnate/once@1.1.2':
     resolution: {integrity: sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw==}
@@ -7528,6 +7545,12 @@ snapshots:
       loader-utils: 2.0.4
     transitivePeerDependencies:
       - supports-color
+
+  '@tiagoporto/editor-config@2.1.0': {}
+
+  '@tiagoporto/prettier-config@2.1.0(prettier@3.6.2)':
+    dependencies:
+      prettier: 3.6.2
 
   '@tootallnate/once@1.1.2': {}
 

@@ -1,42 +1,42 @@
-import React from 'react';
-import { Button, TextField, CircularProgress, Stack } from '@mui/material';
-import { useForm, SubmitHandler } from 'react-hook-form';
-import { useSnackbar } from 'notistack';
-import { useLoadingContext } from '../../context/Loading';
-import { getData } from './data/getData';
+import React from 'react'
+import { Button, TextField, CircularProgress, Stack } from '@mui/material'
+import { useForm, SubmitHandler } from 'react-hook-form'
+import { useSnackbar } from 'notistack'
+import { useLoadingContext } from '../../context/Loading'
+import { getData } from './data/getData'
 
 interface FormFields {
-  query: string;
+  query: string
 }
 
 export const Search = ({
   setSearchResults,
 }: {
-  setSearchResults: Function;
+  setSearchResults: Function
 }) => {
-  const { isLoading, setIsLoading } = useLoadingContext();
-  const { enqueueSnackbar } = useSnackbar();
+  const { isLoading, setIsLoading } = useLoadingContext()
+  const { enqueueSnackbar } = useSnackbar()
   const {
     register,
     handleSubmit,
     formState: { errors: formErrors },
-  } = useForm<FormFields>();
+  } = useForm<FormFields>()
 
   const onSubmit: SubmitHandler<FormFields> = async ({ query }) => {
-    setIsLoading(true);
+    setIsLoading(true)
 
-    const { data, error } = await getData(query);
-    setIsLoading(false);
+    const { data, error } = await getData(query)
+    setIsLoading(false)
 
     if (error) {
       enqueueSnackbar('Request error, try again!!!', {
         variant: 'error',
         anchorOrigin: { vertical: 'bottom', horizontal: 'center' },
-      });
+      })
     } else {
-      setSearchResults(data);
+      setSearchResults(data)
     }
-  };
+  }
 
   return (
     <Stack spacing={2} component="form" onSubmit={handleSubmit(onSubmit)}>
@@ -59,5 +59,5 @@ export const Search = ({
         {isLoading ? <CircularProgress size={25} /> : 'Search'}
       </Button>
     </Stack>
-  );
-};
+  )
+}

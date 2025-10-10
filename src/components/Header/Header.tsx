@@ -1,11 +1,11 @@
-import React from 'react';
-import { Search } from '../Search';
-import { Container, Typography } from '@mui/material';
+import React from 'react'
+import { Search } from '../Search'
+import { Container, Typography } from '@mui/material'
 
 export const Header = ({
   setSearchResults,
 }: {
-  setSearchResults: Function;
+  setSearchResults: Function
 }) => {
   return (
     <Container component="header" sx={{ my: 4 }} disableGutters maxWidth="md">
@@ -21,5 +21,5 @@ export const Header = ({
 
       <Search setSearchResults={setSearchResults} />
     </Container>
-  );
-};
+  )
+}

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Skeleton, Container } from '@mui/material';
+import React from 'react'
+import { Skeleton, Container } from '@mui/material'
 
 export const MainLoading = () => {
   return (
@@ -27,5 +27,5 @@ export const MainLoading = () => {
         </Container>
       ))}
     </>
-  );
-};
+  )
+}
