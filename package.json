@@ -2,7 +2,7 @@
   "name": "search-page-react-next",
   "private": true,
   "engines": {
-    "node": ">=23",
+    "node": ">=22",
     "npm": "uses pnpm",
     "pnpm": ">=10"
   },
