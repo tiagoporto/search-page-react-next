@@ -3,7 +3,7 @@ import { Providers } from './providers'
 import type { ReactNode } from 'react'
 import { Roboto } from 'next/font/google'
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const roboto = Roboto({ subsets: ['latin'], weight: ['400', '700'] })
+const roboto = Roboto({ subsets: ['latin'] })
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
