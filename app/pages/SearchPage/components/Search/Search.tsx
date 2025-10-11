@@ -1,10 +1,10 @@
-'use client'
 import { Button, TextField, CircularProgress, Stack } from '@mui/material'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { useSnackbar } from 'notistack'
 import { useLoadingContext } from '../../context/Loading'
 import { getData } from './data/getData'
 import type { SearchList } from './data/getData'
+import { useState } from 'react'
 
 interface FormFields {
   query: string
@@ -17,6 +17,7 @@ export const Search = ({
 }) => {
   const { isLoading, setIsLoading } = useLoadingContext()
   const { enqueueSnackbar } = useSnackbar()
+  const [error, setError] = useState<unknown>()
   const {
     register,
     handleSubmit,
@@ -24,19 +25,28 @@ export const Search = ({
   } = useForm<FormFields>()
 
   const onSubmit: SubmitHandler<FormFields> = async ({ query }) => {
-    setIsLoading(true)
+    try {
+      setIsLoading(true)
 
-    const { data } = await getData(query)
-    setIsLoading(false)
+      const { data } = await getData(query)
+      setIsLoading(false)
 
-    if (data) {
-      setSearchResults(data)
-    } else {
-      enqueueSnackbar('Request error, try again!!!', {
-        variant: 'error',
-        anchorOrigin: { vertical: 'bottom', horizontal: 'center' },
-      })
+      if (data) {
+        setSearchResults(data)
+      } else {
+        enqueueSnackbar('Request error, try again!!!', {
+          variant: 'error',
+          anchorOrigin: { vertical: 'bottom', horizontal: 'center' },
+        })
+      }
+    } catch (error) {
+      setIsLoading(false)
+      setError(error)
     }
+  }
+
+  if (error) {
+    throw error
   }
 
   return (

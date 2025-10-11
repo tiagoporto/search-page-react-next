@@ -53,7 +53,7 @@ const Main = ({ searchResults }: MainProps) => {
       )}
 
       {searchResults?.length === 0 && (
-        <Typography>There are no results matching your query.</Typography>
+        <Typography>There are no results matching your search.</Typography>
       )}
     </>
   )

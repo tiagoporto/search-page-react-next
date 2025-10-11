@@ -8,6 +8,7 @@ import { useLoadingContext } from './context/Loading'
 export const SearchPage = () => {
   const Main = lazy(() => import('./components/Main/Main'))
   const { isLoading } = useLoadingContext()
+
   const [searchResults, setSearchResults] = useState<
     MainProps['searchResults'] | undefined
   >(undefined)
