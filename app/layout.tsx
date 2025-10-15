@@ -2,6 +2,8 @@ import { CssBaseline } from '@mui/material'
 import { Providers } from './providers'
 import type { ReactNode } from 'react'
 import { Roboto } from 'next/font/google'
+import { GoogleAnalytics } from '@next/third-parties/google'
+
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const roboto = Roboto({ subsets: ['latin'] })
 
@@ -17,9 +19,12 @@ export default function Layout({ children }: { children: ReactNode }) {
 
       <body>
         <CssBaseline />
+
         <Providers>
           <main>{children}</main>
         </Providers>
+
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GTAG_ID || ''} />
       </body>
     </html>
   )
